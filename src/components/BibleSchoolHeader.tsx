@@ -44,7 +44,12 @@ export default function BibleSchoolHeader() {
           <Button size="lg" className="bg-golden-light hover:bg-golden-deep text-divine-blue font-semibold px-8 py-4 text-lg shadow-golden transition-all duration-300 hover:scale-105">
             Começar Estudos
           </Button>
-          <Button variant="outline" size="lg" className="border-2 border-white text-white hover:bg-white hover:text-divine-blue font-semibold px-8 py-4 text-lg transition-all duration-300 hover:scale-105">
+          <Button 
+            variant="outline" 
+            size="lg" 
+            className="border-2 border-white text-white hover:bg-white hover:text-divine-blue font-semibold px-8 py-4 text-lg transition-all duration-300 hover:scale-105"
+            onClick={() => window.open('/plano-salvacao-licoes.pdf', '_blank')}
+          >
             Baixar Material
           </Button>
         </div>
