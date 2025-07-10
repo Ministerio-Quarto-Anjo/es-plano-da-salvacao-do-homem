@@ -1,8 +1,12 @@
 import { Button } from "@/components/ui/button";
-import { BookOpen, Heart, Star } from "lucide-react";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { BookOpen, Heart, Star, Download } from "lucide-react";
 import heroImage from "@/assets/bible-hero.jpg";
+import { useState } from "react";
 
 export default function BibleSchoolHeader() {
+  const [isPdfOpen, setIsPdfOpen] = useState(false);
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
@@ -44,14 +48,42 @@ export default function BibleSchoolHeader() {
           <Button size="lg" className="bg-golden-light hover:bg-golden-deep text-divine-blue font-semibold px-8 py-4 text-lg shadow-golden transition-all duration-300 hover:scale-105">
             Começar Estudos
           </Button>
-          <Button 
-            variant="outline" 
-            size="lg" 
-            className="border-2 border-white text-white hover:bg-white hover:text-divine-blue font-semibold px-8 py-4 text-lg transition-all duration-300 hover:scale-105"
-            onClick={() => window.open('/plano-salvacao-licoes.pdf', '_blank')}
-          >
-            Baixar Material
-          </Button>
+          <Dialog open={isPdfOpen} onOpenChange={setIsPdfOpen}>
+            <DialogTrigger asChild>
+              <Button 
+                variant="outline" 
+                size="lg" 
+                className="border-2 border-white text-white hover:bg-white hover:text-divine-blue font-semibold px-8 py-4 text-lg transition-all duration-300 hover:scale-105"
+              >
+                <BookOpen className="h-5 w-5 mr-2" />
+                Ver Material
+              </Button>
+            </DialogTrigger>
+            <DialogContent className="max-w-6xl h-[90vh] p-0">
+              <DialogHeader className="p-6 pb-0">
+                <DialogTitle className="flex items-center gap-2 text-divine-blue">
+                  <BookOpen className="h-6 w-6" />
+                  O Plano da Salvação do Homem
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="ml-auto"
+                    onClick={() => window.open('/plano-salvacao-licoes.pdf', '_blank')}
+                  >
+                    <Download className="h-4 w-4 mr-1" />
+                    Baixar
+                  </Button>
+                </DialogTitle>
+              </DialogHeader>
+              <div className="flex-1 p-6 pt-0">
+                <iframe
+                  src="/plano-salvacao-licoes.pdf"
+                  className="w-full h-full border rounded-lg"
+                  title="Plano da Salvação do Homem - PDF"
+                />
+              </div>
+            </DialogContent>
+          </Dialog>
         </div>
 
         {/* Stats */}
