@@ -67,6 +67,7 @@ export default function CallToAction() {
               variant="outline" 
               size="lg" 
               className="border-2 border-white text-white hover:bg-white hover:text-divine-blue font-semibold px-8 py-4 text-lg transition-all duration-300 hover:scale-105"
+              onClick={() => window.open('/plano-salvacao-licoes.pdf', '_blank')}
             >
               <Download className="mr-2 h-5 w-5" />
               Baixar Material PDF
