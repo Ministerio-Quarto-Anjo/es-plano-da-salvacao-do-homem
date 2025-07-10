@@ -52,6 +52,12 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+				'divine-blue': 'hsl(var(--divine-blue))',
+				'celestial-light': 'hsl(var(--celestial-light))',
+				'golden-light': 'hsl(var(--golden-light))',
+				'golden-deep': 'hsl(var(--golden-deep))',
+				'text-divine': 'hsl(var(--text-divine))',
+				'text-muted': 'hsl(var(--text-muted))',
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
@@ -84,11 +90,30 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'float': {
+					'0%, 100%': { transform: 'translateY(0px)' },
+					'50%': { transform: 'translateY(-10px)' }
+				},
+				'glow': {
+					'0%': { boxShadow: '0 0 20px hsl(var(--golden-light))' },
+					'100%': { boxShadow: '0 0 30px hsl(var(--golden-light)), 0 0 40px hsl(var(--golden-light))' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'float': 'float 6s ease-in-out infinite',
+				'glow': 'glow 2s ease-in-out infinite alternate'
+			},
+			backgroundImage: {
+				'gradient-celestial': 'var(--gradient-celestial)',
+				'gradient-divine': 'var(--gradient-divine)',
+				'gradient-hero': 'var(--gradient-hero)'
+			},
+			boxShadow: {
+				'divine': 'var(--shadow-divine)',
+				'golden': 'var(--shadow-golden)'
 			}
 		}
 	},
